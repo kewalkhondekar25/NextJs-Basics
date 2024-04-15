@@ -7,19 +7,19 @@ import { useRouter } from 'next/navigation';
 const SignIn = () => {
     
     const [data, setData] = useState({
-        userName: "",
+        username: "",
         password: ""
     });
     const router = useRouter();
 
     const handleUserName = (e: any) => {
-        setData(prev => ({...prev, userName: e.target.value }))
+        setData(prev => ({...prev, username: e.target.value }))
     }
     const handlePwd = (e: any) => {
         setData(prev => ({...prev, password: e.target.value }))
     }
     const handleSignIn = () => {
-        axios.post("http://localhost:3000/api/user", {data});
+        axios.post("http://localhost:3000/api/user", data);
         alert("sign in successfull");
         router.push("/home")
     }
