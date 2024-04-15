@@ -1,6 +1,8 @@
 "use client"
+import axios from 'axios';
 import { log } from 'console';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 const SignIn = () => {
     
@@ -8,6 +10,7 @@ const SignIn = () => {
         userName: "",
         password: ""
     });
+    const router = useRouter();
 
     const handleUserName = (e: any) => {
         setData(prev => ({...prev, userName: e.target.value }))
@@ -16,8 +19,9 @@ const SignIn = () => {
         setData(prev => ({...prev, password: e.target.value }))
     }
     const handleSignIn = () => {
-        console.log(data);
-        alert(`username: ${data.userName}, pwd: ${data.password}`)
+        axios.post("http://localhost:3000/api/user", {data});
+        alert("sign in successfull");
+        router.push("/home")
     }
   return (
     <div>
