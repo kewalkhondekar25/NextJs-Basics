@@ -8,6 +8,7 @@ interface Products {
 }
 
 const getProducts = async () => {
+    // await new Promise(r => setTimeout(r, 3000));
     const response = await axios.get("https://fakestoreapi.com/products");
     return response.data;
 }
