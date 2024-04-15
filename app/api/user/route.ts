@@ -1,21 +1,22 @@
 import { PrismaClient } from "@prisma/client"
 import { log } from "console"
-import { NextRequest } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 
 const client = new PrismaClient();
 
-export const GET = () => {
-    //db logic
-    return Response.json({
-        email: "john@gmail.com",
-        name: "john smith"
-    })
-}
+export const GET = async () => {
+    const response = await client.user.findMany({})
+    return NextResponse.json(response)
+};
 
 export const POST = async (req: NextRequest) => {
     //extract body.
     const body = await req.json();
-    // console.log(body);
+    //headers
+    console.log(req.headers.get("authorization"));
+    //query params
+    console.log(req.nextUrl.searchParams.get("name"));
+    
     // store in db
     await client.user.create({
         data: {
@@ -23,7 +24,7 @@ export const POST = async (req: NextRequest) => {
             password: body.password
         }
     });
-    return Response.json({
+    return NextResponse.json({
        message: "signin completed"
     })
-}
+};
