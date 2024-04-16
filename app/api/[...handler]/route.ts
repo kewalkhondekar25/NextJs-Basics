@@ -1,6 +1,7 @@
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 
-export const GET = () => {
+export const GET = (req: NextRequest, {params}: {params: {handler: String[]}}) => {
+    console.log(params);
     return NextResponse.json({
         msg: "rout not found"
     })
