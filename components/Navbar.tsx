@@ -19,7 +19,7 @@ const Navbar = () => {
                     return(
                         <li>
                             <Link href={item.href} key={item.label}
-                            className='capitalize'>{item.label}</Link>
+                            className='capitalize text-slate-300'>{item.label}</Link>
                         </li>
                     )
                 })
