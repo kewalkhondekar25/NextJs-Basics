@@ -27,11 +27,11 @@ const page = async () => {
         data.map(item => {
           return (
             <div className="" key={item._id}>
-              <Link href="/meals/meals-info">
+              {/* <Link href="/meals/meals-info"> */}
                 <Image
                   className='ml-5 mt-5 rounded-[5px]'
                   src={item.image} alt="img" height={200} width={200} />
-              </Link>
+              {/* </Link> */}
             </div>
           )
         })
