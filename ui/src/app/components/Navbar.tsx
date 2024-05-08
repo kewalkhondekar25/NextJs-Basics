@@ -12,8 +12,8 @@ const links: LinksType[] = [
     lable: "client"
   },
   {
-    href: "/drink",
-    lable: "drink"
+    href: "/meals",
+    lable: "meals"
   },
   {
     href: "/task",
