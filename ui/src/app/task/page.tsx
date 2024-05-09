@@ -1,5 +1,7 @@
 import React from 'react'
 import prisma from '../../../utils/db'
+import TaskForm from '../components/TaskForm';
+import TaskList from '../components/TaskList';
 
 const page = async () => {
   const allTask = await prisma.task.findMany({
@@ -7,13 +9,16 @@ const page = async () => {
       createdAt: "desc"
     }
   });
-  if(allTask.length === 0){
-    return(
-      <div>No tasks 🤧</div>
-    )
-  }
+  // if(allTask.length === 0){
+  //   return(
+  //     <div>No tasks 🤧</div>
+  //   )
+  // }
   return (
-    <div>task page</div>
+    <div>
+      <TaskForm/>
+      <TaskList/>
+    </div>
   )
 }
 
