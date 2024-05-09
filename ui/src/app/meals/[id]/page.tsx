@@ -16,14 +16,14 @@ interface SingleMeal {
   __v: number
 }
 
-const getSingleMeal = async (params: ParamsType) => {
+const getSingleMeal = async (params: ParamsType): Promise<SingleMeal> => {
   console.log(params.id);
   const response = await fetch(`https://vegan-meals-api.vercel.app/api/v1/categories/meals/${params.id}`);
   console.log(response);
   if (!response.ok) {
     throw new Error("failed to load")
   };
-  return response.json();
+  return response.json() as Promise<SingleMeal>;
 }
 
 const page = async ({ params }: { params: ParamsType }) => {
