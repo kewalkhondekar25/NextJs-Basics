@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import { editTask } from '../../../utils/actions';
 
@@ -8,8 +9,9 @@ interface TaskType {
     completed: boolean;
 }
 const EditForm = ({task}: {task: TaskType}) => {
-  const {id, content, createdAt, completed} = task;
 
+  const {id, content, createdAt, completed} = task;
+  
   return (
     <div>
       <form action={editTask}>

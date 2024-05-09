@@ -26,7 +26,7 @@ const TaskList = async () => {
       <div>{allTasks.map(item => {
         return (
           <div key={item.id} className='flex'>
-            <span className='text-white'>{item.content}</span>
+            <span className={`text-white ${item.completed ? "line-through" : null}`}>{item.content}</span>
             <Link href={`/task/${item.id}`}>
               <button className='bg-purple-800 rounded-[50%] text-white ml-2'>edit</button>
             </Link>
